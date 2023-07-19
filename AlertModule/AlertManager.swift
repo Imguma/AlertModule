@@ -13,8 +13,7 @@ class AlertManager: ObservableObject {
     private init() {}
     
     @Published var showAlert = false
-    @Published var showAlertWithRequest1 = false
-    @Published var showAlertWithRequest2 = false
+    @Published var showAlertWithRequest = false
     @Published var showAlertWithDownload = false
     @Published var message = ""
 }

@@ -14,12 +14,12 @@ struct CustomAlert: View {
     let primaryButton: CustomAlertButton?
     let secondaryButton: CustomAlertButton?
     
-    @State private var opacity: CGFloat = 0
-    @State private var backgroundOpacity: CGFloat = 0
-    @State private var scale: CGFloat = 0.001
-    @State var contentSize: CGSize = .zero
+    @State private var opacity: CGFloat = 0              // 불투명도
+    @State private var backgroundOpacity: CGFloat = 0    // 배경 불투명도
+    @State private var contentSize: CGSize = .zero       // message view size
     
-    @Environment(\.dismiss) private var dismiss
+    // iOS 13.0–17.0 Deprecated
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
         ZStack {
@@ -38,7 +38,7 @@ struct CustomAlert: View {
         }
         .padding(EdgeInsets(top: 20, leading: 20, bottom: 0, trailing: 20))
         .frame(width: AlertLayout.BACKGROUND_FRAME_WIDTH_SIZE)
-        .background(.white)
+        .background(Color.COMMON_ALERT_NONE_BUTTON_COLOR)
         .cornerRadius(AlertLayout.BACKGROUND_CORNER_RADIUS)
         .shadow(color: Color.black.opacity(0.4), radius: 16, x: 0, y: 12)
     }
@@ -74,7 +74,7 @@ struct CustomAlert: View {
                         }
                     )
             }
-            .frame(maxHeight: contentSize.height) // dynamic text to height
+            .frame(maxHeight: contentSize.height) // height according to flexible text
         }
     }
     
@@ -96,7 +96,7 @@ struct CustomAlert: View {
         if let button = primaryButton {
             CustomAlertButton(title: button.title, onColor: button.onColor) {
                 animate(isShown: false) {
-                    dismiss()
+                    presentationMode.wrappedValue.dismiss()
                 }
                 
                 if button.action != nil {
@@ -117,7 +117,7 @@ struct CustomAlert: View {
         if let button = secondaryButton {
             CustomAlertButton(title: button.title, onColor: button.onColor) {
                 animate(isShown: false) {
-                    dismiss()
+                    presentationMode.wrappedValue.dismiss()
                 }
             
                 if button.action != nil {
@@ -138,7 +138,7 @@ struct CustomAlert: View {
         if let button = dismissButton {
             CustomAlertButton(title: button.title, onColor: button.onColor) {
                 animate(isShown: false) {
-                    dismiss()
+                    presentationMode.wrappedValue.dismiss()
                 }
                 
                 if button.action != nil {
@@ -167,7 +167,6 @@ struct CustomAlert: View {
             
             withAnimation(.spring(response: 0.3, dampingFraction: 0.9, blendDuration: 0).delay(0.5)) {
                 backgroundOpacity = 1
-                scale             = 1
             }
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
