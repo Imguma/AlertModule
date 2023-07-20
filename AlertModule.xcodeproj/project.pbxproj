@@ -13,6 +13,9 @@
 		277CA9302A612D9E00AD4023 /* CustomAlertButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277CA92F2A612D9E00AD4023 /* CustomAlertButton.swift */; };
 		277CA9322A612DBB00AD4023 /* AlertConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277CA9312A612DBB00AD4023 /* AlertConstants.swift */; };
 		277CA9362A612DE200AD4023 /* CustomAlertModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277CA9352A612DE200AD4023 /* CustomAlertModifier.swift */; };
+		27EBA49E2A68FF7700C3D255 /* CustomAlertTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EBA49D2A68FF7700C3D255 /* CustomAlertTextField.swift */; };
+		27EBA4A12A68FF9E00C3D255 /* AlertSetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EBA4A02A68FF9E00C3D255 /* AlertSetter.swift */; };
+		27EBA4A52A69003800C3D255 /* KeyboardListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EBA4A42A69003800C3D255 /* KeyboardListener.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +26,9 @@
 		277CA92F2A612D9E00AD4023 /* CustomAlertButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertButton.swift; sourceTree = "<group>"; };
 		277CA9312A612DBB00AD4023 /* AlertConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertConstants.swift; sourceTree = "<group>"; };
 		277CA9352A612DE200AD4023 /* CustomAlertModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertModifier.swift; sourceTree = "<group>"; };
+		27EBA49D2A68FF7700C3D255 /* CustomAlertTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertTextField.swift; sourceTree = "<group>"; };
+		27EBA4A02A68FF9E00C3D255 /* AlertSetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertSetter.swift; sourceTree = "<group>"; };
+		27EBA4A42A69003800C3D255 /* KeyboardListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardListener.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,14 +61,41 @@
 		277CA9202A61197800AD4023 /* AlertModule */ = {
 			isa = PBXGroup;
 			children = (
+				27EBA4A62A69007300C3D255 /* Modifier */,
+				27EBA49F2A68FF8B00C3D255 /* Settings */,
+				27EBA49A2A68F98D00C3D255 /* View */,
+				27EBA4A42A69003800C3D255 /* KeyboardListener.swift */,
 				277CA9212A61197800AD4023 /* AlertModule.h */,
 				277CA9222A61197800AD4023 /* AlertModule.docc */,
-				277CA92D2A612D7800AD4023 /* CustomAlert.swift */,
-				277CA92F2A612D9E00AD4023 /* CustomAlertButton.swift */,
-				277CA9312A612DBB00AD4023 /* AlertConstants.swift */,
-				277CA9352A612DE200AD4023 /* CustomAlertModifier.swift */,
 			);
 			path = AlertModule;
+			sourceTree = "<group>";
+		};
+		27EBA49A2A68F98D00C3D255 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				277CA92D2A612D7800AD4023 /* CustomAlert.swift */,
+				277CA92F2A612D9E00AD4023 /* CustomAlertButton.swift */,
+				27EBA49D2A68FF7700C3D255 /* CustomAlertTextField.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		27EBA49F2A68FF8B00C3D255 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				27EBA4A02A68FF9E00C3D255 /* AlertSetter.swift */,
+				277CA9312A612DBB00AD4023 /* AlertConstants.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		27EBA4A62A69007300C3D255 /* Modifier */ = {
+			isa = PBXGroup;
+			children = (
+				277CA9352A612DE200AD4023 /* CustomAlertModifier.swift */,
+			);
+			path = Modifier;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -144,9 +177,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27EBA4A52A69003800C3D255 /* KeyboardListener.swift in Sources */,
 				277CA9362A612DE200AD4023 /* CustomAlertModifier.swift in Sources */,
 				277CA9322A612DBB00AD4023 /* AlertConstants.swift in Sources */,
 				277CA9232A61197800AD4023 /* AlertModule.docc in Sources */,
+				27EBA4A12A68FF9E00C3D255 /* AlertSetter.swift in Sources */,
+				27EBA49E2A68FF7700C3D255 /* CustomAlertTextField.swift in Sources */,
 				277CA92E2A612D7800AD4023 /* CustomAlert.swift in Sources */,
 				277CA9302A612D9E00AD4023 /* CustomAlertButton.swift in Sources */,
 			);

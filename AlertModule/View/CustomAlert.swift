@@ -7,16 +7,18 @@
 
 import SwiftUI
 
-struct CustomAlert: View {
+struct CustomAlert: View, KeyboardReadable {
     let title: String
     let message: String
+    let inputTextField: CustomAlertTextField?
     let dismissButton: CustomAlertButton?
     let primaryButton: CustomAlertButton?
     let secondaryButton: CustomAlertButton?
-    
+
     @State private var opacity: CGFloat = 0              // 불투명도
     @State private var backgroundOpacity: CGFloat = 0    // 배경 불투명도
     @State private var contentSize: CGSize = .zero       // message view size
+    @State private var isKeyboardUp: Bool = false        // 키보드 올라옴 감지
     
     // iOS 13.0–17.0 Deprecated
     @Environment(\.presentationMode) var presentationMode
@@ -25,9 +27,13 @@ struct CustomAlert: View {
         ZStack {
             dimView
             alertView
-                .padding(EdgeInsets(top: 120, leading: 0, bottom: 120, trailing: 0))
+                .padding()
+                .padding(EdgeInsets(top: 120, leading: 0, bottom: isKeyboardUp ? 200 : 120, trailing: 0))
         }
         .ignoresSafeArea()
+        .onReceive(keyboardPublisher) { visible in
+            isKeyboardUp = visible  // 키보드 올라옴 감지
+        }
     }
     
     private var alertView: some View {
@@ -36,9 +42,9 @@ struct CustomAlert: View {
             messageView
             buttonsView
         }
-        .padding(EdgeInsets(top: 20, leading: 20, bottom: 0, trailing: 20))
+        .padding(EdgeInsets(top: 30, leading: 20, bottom: 0, trailing: 20))
         .frame(width: AlertLayout.BACKGROUND_FRAME_WIDTH_SIZE)
-        .background(Color.COMMON_ALERT_NONE_BUTTON_COLOR)
+        .background(Color.white)
         .cornerRadius(AlertLayout.BACKGROUND_CORNER_RADIUS)
         .shadow(color: Color.black.opacity(0.4), radius: 16, x: 0, y: 12)
     }
@@ -59,22 +65,34 @@ struct CustomAlert: View {
     private var messageView: some View {
         if !message.isEmpty {
             ScrollView {
-                Text(message)
-                    .padding(EdgeInsets(top: 10, leading: 20, bottom: 0, trailing: 20))
-                    .font(.system(size: AlertLayout.MESSAGE_TEXT_SIZE))
-                    .foregroundColor(.black)
-                    .lineSpacing(24 - UIFont.systemFont(ofSize: 16).lineHeight)
-                    .multilineTextAlignment(.center)
-                    .frame(maxWidth: .infinity, alignment: .center)
-                    .overlay(
-                        GeometryReader { geo in
-                            Color.clear.onAppear {
-                                contentSize = geo.size
-                            }
+                VStack {
+                    Text(message)
+                        .font(.system(size: AlertLayout.MESSAGE_TEXT_SIZE))
+                        .foregroundColor(.black)
+                        .lineSpacing(24 - UIFont.systemFont(ofSize: 16).lineHeight)
+                        .multilineTextAlignment(.center)
+                        .frame(maxWidth: .infinity, alignment: .center)
+                    inputTextView
+                }
+                .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
+                .overlay(
+                    GeometryReader { geo in
+                        Color.clear.onAppear {
+                            contentSize = geo.size
                         }
-                    )
+                    }
+                )
             }
             .frame(maxHeight: contentSize.height) // height according to flexible text
+        }
+    }
+    
+    @ViewBuilder
+    private var inputTextView: some View {
+        VStack {
+            if inputTextField != nil {
+                inputTextField
+            }
         }
     }
     
@@ -185,9 +203,3 @@ struct CustomAlert: View {
         }
     }
 }
-
-//struct CustomAlert_Previews: PreviewProvider {
-//    static var previews: some View {
-//        CustomAlert()
-//    }
-//}

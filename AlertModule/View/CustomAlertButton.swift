@@ -27,20 +27,14 @@ struct CustomAlertButton: View {
             Text(title)
                 .frame(minWidth: 90, maxWidth: .infinity)
                 .font(.system(size: AlertLayout.BUTTON_TEXT_SIZE, weight: onColor ? .regular : .bold))
-                .foregroundColor(onColor ? Color.COMMON_ALERT_NONE_BUTTON_TEXT_COLOR : .white)
+                .foregroundColor(!onColor ? AlertSetter.CONFIRM_BUTTON_TEXT_COLOR : AlertSetter.CANCEL_BUTTON_TEXT_COLOR)
                 .padding()
                 .overlay(
                     RoundedRectangle(cornerRadius: AlertLayout.BUTTON_CORNER_RADIUS)
-                        .stroke(onColor ? Color.COMMON_ALERT_NONE_BUTTON_BORDER_COLOR : .clear, lineWidth: 1)
+                        .stroke(!onColor ? .clear : AlertSetter.CANCEL_BUTTON_BORDER_COLOR, lineWidth: 1)
                 )
         }
-        .background(onColor ? Color.COMMON_ALERT_NONE_BUTTON_COLOR : Color.COMMON_ALERT_THEME_BUTTON_COLOR)
+        .background(!onColor ? AlertSetter.CONFIRM_BUTTON_BACKGROUND_COLOR : AlertSetter.CANCEL_BUTTON_BACKGROUND_COLOR)
         .cornerRadius(AlertLayout.BUTTON_CORNER_RADIUS)
     }
 }
-
-//struct CustomAlertButton_Previews: PreviewProvider {
-//    static var previews: some View {
-//        CustomAlertButton()
-//    }
-//}
