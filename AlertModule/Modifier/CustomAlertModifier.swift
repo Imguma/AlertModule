@@ -12,6 +12,7 @@ struct CustomAlertModifier {
 
     private let title: String
     private let message: String
+    private let inputTextField: CustomAlertTextField?
     private let dismissButton: CustomAlertButton?
     private let primaryButton: CustomAlertButton?
     private let secondaryButton: CustomAlertButton?
@@ -22,7 +23,7 @@ extension CustomAlertModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
             .fullScreenCover(isPresented: $isPresented) {
-                CustomAlert(title: title, message: message, dismissButton: dismissButton, primaryButton: primaryButton, secondaryButton: secondaryButton)
+                CustomAlert(title: title, message: message, inputTextField: inputTextField, dismissButton: dismissButton, primaryButton: primaryButton, secondaryButton: secondaryButton)
                     .background(BackgroundCleanerView())
             }
             .transaction { transaction in
@@ -52,6 +53,7 @@ extension CustomAlertModifier {
         self.message = message
         self.dismissButton = dismissButton
         
+        self.inputTextField = nil
         self.primaryButton = nil
         self.secondaryButton = nil
     
@@ -61,6 +63,19 @@ extension CustomAlertModifier {
     init(title: String = "", message: String = "", primaryButton: CustomAlertButton, secondaryButton: CustomAlertButton, isPresented: Binding<Bool>) {
         self.title = title
         self.message = message
+        self.primaryButton = primaryButton
+        self.secondaryButton = secondaryButton
+        
+        self.inputTextField = nil
+        self.dismissButton = nil
+    
+        _isPresented = isPresented
+    }
+    
+    init(title: String = "", message: String = "", inputTextField: CustomAlertTextField, primaryButton: CustomAlertButton, secondaryButton: CustomAlertButton, isPresented: Binding<Bool>) {
+        self.title = title
+        self.message = message
+        self.inputTextField = inputTextField
         self.primaryButton = primaryButton
         self.secondaryButton = secondaryButton
         
