@@ -2,7 +2,6 @@
 //  CustomAlertButton.swift
 //  AlertModule
 //
-//  Created by 애니모비 on 2023/07/14.
 //
 
 import SwiftUI

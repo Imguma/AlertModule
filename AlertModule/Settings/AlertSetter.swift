@@ -2,7 +2,6 @@
 //  AlertSetter.swift
 //  AlertModule
 //
-//  Created by 애니모비 on 2023/07/20.
 //
 
 import Foundation
