@@ -27,7 +27,7 @@ public struct CustomAlert: View, KeyboardReadable {
             dimView
             alertView
                 .padding()
-                .padding(EdgeInsets(top: 120, leading: 0, bottom: isKeyboardUp ? 200 : 120, trailing: 0))
+                .padding(EdgeInsets(top: 120, leading: 0, bottom: isKeyboardUp ? 200 : 120, trailing: 0))  // FIXME: 키보드 올라올시 alert view 위치 값 가져와서 변경해줘야함
         }
         .ignoresSafeArea()
         .onReceive(keyboardPublisher) { visible in
