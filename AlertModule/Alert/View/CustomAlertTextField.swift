@@ -22,7 +22,7 @@ public struct CustomAlertTextField: View {
             RoundedRectangle(cornerRadius: 1)
                 .stroke(AlertSetter.INPUT_BORDER_COLOR, lineWidth: 1))
             .onAppear {
-                inputText = ""
+                inputText = "" // 값 초기화
             }
     }
 }
