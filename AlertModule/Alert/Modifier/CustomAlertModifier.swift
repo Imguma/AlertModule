@@ -6,26 +6,27 @@
 
 import SwiftUI
 
-struct CustomAlertModifier {
-    @Binding private var isPresented: Bool
+public struct CustomAlertModifier {
+    @Binding public var isPresented: Bool
 
-    private let title: String
-    private let message: String
-    private let inputTextField: CustomAlertTextField?
-    private let dismissButton: CustomAlertButton?
-    private let primaryButton: CustomAlertButton?
-    private let secondaryButton: CustomAlertButton?
+    public let title: String
+    public let message: String
+    public let inputTextField: CustomAlertTextField?
+    public let dismissButton: CustomAlertButton?
+    public let primaryButton: CustomAlertButton?
+    public let secondaryButton: CustomAlertButton?
 }
 
 
 extension CustomAlertModifier: ViewModifier {
-    func body(content: Content) -> some View {
+    public func body(content: Content) -> some View {
         content
             .fullScreenCover(isPresented: $isPresented) {
                 CustomAlert(title: title, message: message, inputTextField: inputTextField, dismissButton: dismissButton, primaryButton: primaryButton, secondaryButton: secondaryButton)
                     .background(BackgroundCleanerView())
             }
             .transaction { transaction in
+                // animation 비활성화
                 transaction.disablesAnimations = true
             }
     }
@@ -46,7 +47,8 @@ struct BackgroundCleanerView: UIViewRepresentable {
     }
 }
 
-extension CustomAlertModifier {
+// custom alert 생성자
+public extension CustomAlertModifier {
     init(title: String = "", message: String = "", dismissButton: CustomAlertButton, isPresented: Binding<Bool>) {
         self.title = title
         self.message = message

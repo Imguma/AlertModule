@@ -6,13 +6,13 @@
 
 import SwiftUI
 
-struct CustomAlert: View, KeyboardReadable {
-    let title: String
-    let message: String
-    let inputTextField: CustomAlertTextField?
-    let dismissButton: CustomAlertButton?
-    let primaryButton: CustomAlertButton?
-    let secondaryButton: CustomAlertButton?
+public struct CustomAlert: View, KeyboardReadable {
+    public let title: String
+    public let message: String
+    public let inputTextField: CustomAlertTextField?
+    public let dismissButton: CustomAlertButton?
+    public let primaryButton: CustomAlertButton?
+    public let secondaryButton: CustomAlertButton?
 
     @State private var opacity: CGFloat = 0              // 불투명도
     @State private var backgroundOpacity: CGFloat = 0    // 배경 불투명도
@@ -22,7 +22,7 @@ struct CustomAlert: View, KeyboardReadable {
     // iOS 13.0–17.0 Deprecated
     @Environment(\.presentationMode) var presentationMode
     
-    var body: some View {
+    public var body: some View {
         ZStack {
             dimView
             alertView

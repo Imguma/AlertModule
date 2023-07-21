@@ -6,13 +6,20 @@
 
 import SwiftUI
 
-struct CustomAlertButton: View {
-    let title: LocalizedStringKey                            // button title
-    var onColor: Bool                                        // button color(on/off)
-    var action: (() -> Void)? = nil                          // 일반 함수
-    var task: (@Sendable () async throws -> Void)? = nil     // 비동기 함수
+public struct CustomAlertButton: View {
+    public let title: LocalizedStringKey                            // button title
+    public var onColor: Bool                                        // button color(on/off)
+    public var action: (() -> Void)? = nil                          // 일반 함수
+    public var task: (@Sendable () async throws -> Void)? = nil     // 비동기 함수
     
-    var body: some View {
+    public init(title: LocalizedStringKey, onColor: Bool, action: ( () -> Void)? = nil, task: (@Sendable () async throws -> Void)? = nil) {
+        self.title = title
+        self.onColor = onColor
+        self.action = action
+        self.task = task
+    }
+    
+    public var body: some View {
         Button {
             if action != nil {
                 action?()

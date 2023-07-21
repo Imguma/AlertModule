@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		270DD4422A69FCA800640E91 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270DD4412A69FCA800640E91 /* Extensions.swift */; };
+		270DD4502A6A072600640E91 /* CustomToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270DD44F2A6A072600640E91 /* CustomToast.swift */; };
+		270DD4522A6A075700640E91 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270DD4512A6A075700640E91 /* Toast.swift */; };
 		277CA9232A61197800AD4023 /* AlertModule.docc in Sources */ = {isa = PBXBuildFile; fileRef = 277CA9222A61197800AD4023 /* AlertModule.docc */; };
 		277CA9242A61197800AD4023 /* AlertModule.h in Headers */ = {isa = PBXBuildFile; fileRef = 277CA9212A61197800AD4023 /* AlertModule.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		277CA92E2A612D7800AD4023 /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277CA92D2A612D7800AD4023 /* CustomAlert.swift */; };
@@ -19,6 +22,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		270DD4412A69FCA800640E91 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		270DD44F2A6A072600640E91 /* CustomToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomToast.swift; sourceTree = "<group>"; };
+		270DD4512A6A075700640E91 /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		277CA91E2A61197800AD4023 /* AlertModule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AlertModule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		277CA9212A61197800AD4023 /* AlertModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AlertModule.h; sourceTree = "<group>"; };
 		277CA9222A61197800AD4023 /* AlertModule.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = AlertModule.docc; sourceTree = "<group>"; };
@@ -42,6 +48,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		270DD44D2A6A06FD00640E91 /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				27EBA49F2A68FF8B00C3D255 /* Settings */,
+				27EBA4A62A69007300C3D255 /* Modifier */,
+				27EBA49A2A68F98D00C3D255 /* View */,
+			);
+			path = Alert;
+			sourceTree = "<group>";
+		};
+		270DD44E2A6A071300640E91 /* Toast */ = {
+			isa = PBXGroup;
+			children = (
+				270DD44F2A6A072600640E91 /* CustomToast.swift */,
+				270DD4512A6A075700640E91 /* Toast.swift */,
+			);
+			path = Toast;
+			sourceTree = "<group>";
+		};
 		277CA9142A61197800AD4023 = {
 			isa = PBXGroup;
 			children = (
@@ -61,10 +86,10 @@
 		277CA9202A61197800AD4023 /* AlertModule */ = {
 			isa = PBXGroup;
 			children = (
-				27EBA4A62A69007300C3D255 /* Modifier */,
-				27EBA49F2A68FF8B00C3D255 /* Settings */,
-				27EBA49A2A68F98D00C3D255 /* View */,
+				270DD4412A69FCA800640E91 /* Extensions.swift */,
 				27EBA4A42A69003800C3D255 /* KeyboardListener.swift */,
+				270DD44D2A6A06FD00640E91 /* Alert */,
+				270DD44E2A6A071300640E91 /* Toast */,
 				277CA9212A61197800AD4023 /* AlertModule.h */,
 				277CA9222A61197800AD4023 /* AlertModule.docc */,
 			);
@@ -178,11 +203,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				27EBA4A52A69003800C3D255 /* KeyboardListener.swift in Sources */,
+				270DD4422A69FCA800640E91 /* Extensions.swift in Sources */,
 				277CA9362A612DE200AD4023 /* CustomAlertModifier.swift in Sources */,
 				277CA9322A612DBB00AD4023 /* AlertConstants.swift in Sources */,
+				270DD4502A6A072600640E91 /* CustomToast.swift in Sources */,
 				277CA9232A61197800AD4023 /* AlertModule.docc in Sources */,
 				27EBA4A12A68FF9E00C3D255 /* AlertSetter.swift in Sources */,
 				27EBA49E2A68FF7700C3D255 /* CustomAlertTextField.swift in Sources */,
+				270DD4522A6A075700640E91 /* Toast.swift in Sources */,
 				277CA92E2A612D7800AD4023 /* CustomAlert.swift in Sources */,
 				277CA9302A612D9E00AD4023 /* CustomAlertButton.swift in Sources */,
 			);

@@ -7,12 +7,13 @@
 import Combine
 import UIKit
 
-protocol KeyboardReadable {
+public protocol KeyboardReadable {
     var keyboardPublisher: AnyPublisher<Bool, Never> { get }
 }
 
 extension KeyboardReadable {
-    var keyboardPublisher: AnyPublisher<Bool, Never> {
+    // 키보드 올라옴 감지
+    public var keyboardPublisher: AnyPublisher<Bool, Never> {
         Publishers.Merge(
             NotificationCenter.default
                 .publisher(for: UIResponder.keyboardWillShowNotification)
