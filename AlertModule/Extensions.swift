@@ -7,7 +7,6 @@
 import SwiftUI
 
 public extension View {
-    
     // default alert with one button
     func customAlert(isPresented: Binding<Bool>, title: String = "", message: String = "", dismissButton: CustomAlertButton = CustomAlertButton(title: "확인", onColor: false)) -> some View {
         let title   = NSLocalizedString(title, comment: "")
