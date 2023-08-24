@@ -1,7 +1,7 @@
 # AlertModule
 
 ### 📝 Description
--	SwiftUI의 Modifier를 활용한 Custom Alert 기능
+-	SwiftUI의 Modifier를 활용한 Custom Toast Alert 기능
 ***
 
 ### 🔎 Key Features
